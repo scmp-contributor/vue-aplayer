@@ -20,57 +20,14 @@
           src="https://img.shields.io/npm/l/vue-aplayer.svg?style=flat-square"/></a>
       </p>
       <h3>Basic (zero config)</h3>
-      <aplayer
+      <aplayer 
         :music="{
-          title: 'secret base~君がくれたもの~',
+          title: 'SCMP',
           artist: 'Silent Siren',
-          src: 'http://0.0.0.0:3000/aplayer/secretbase.mp3',
+          src: 'https://cdn2.i-scmp.com/sites/default/files/uploads/2018/10/29/cornell_story.mp3',
           pic: 'http://0.0.0.0:3000/aplayer/secretbase.jpg'
         }"
       />
-
-      <h3>Featured</h3>
-      <aplayer
-        autoplay
-        theme="pic"
-        shuffle
-        repeat="list"
-        show-lrc
-        :muted.sync="muted"
-        :volume.sync="volume"
-        :music='list3[0]'
-        :list='list3'
-      />
-      <ul style="text-align: start">
-        <li>Playlist</li>
-        <li>Lyrics scroll</li>
-        <li>Per-song theme & self-adapting theme</li>
-        <li>HLS support</li>
-        <li>External controls</li>
-        <ul>
-          <li>
-            <a role="button" tabindex="-1" @click="muted = !muted">
-              {{ muted ? 'Unmute' : 'Mute' }} player
-            </a>
-          </li>
-          <li>Volume: <input type="number" step="0.1" min="0" max="1" v-model.number="volume"></li>
-        </ul>
-      </ul>
-      <h3>Mini mode / Float mode (try dragging it around)</h3>
-      <aplayer
-        mini
-        float
-        :music="{
-          title: 'トリカゴ',
-          artist: 'XX:me',
-          src: 'http://0.0.0.0:3000/aplayer/darling.mp3',
-          pic: 'http://0.0.0.0:3000/aplayer/darling.jpg',
-        }"
-      />
-      <footer align="center">
-        <p>Thank <a href="https://github.com/DIYgod" target="_blank">@DIYgod</a> and <a
-          href="https://github.com/MoePlayer/APlayer" target="_blank">APlayer</a> for hosting demo resources</p>
-      </footer>
     </div>
   </div>
 </template>
@@ -133,7 +90,7 @@
 
   body {
     font-family: Source Sans Pro, 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, rgb(65, 184, 131), rgb(74, 156, 238));
+    /* background: linear-gradient(135deg, rgb(65, 184, 131), rgb(74, 156, 238)); */
     color: #fff;
     overflow-y: auto;
   }

@@ -19,7 +19,7 @@
           @mouseover="thumbHovered = true"
           @mouseout="thumbHovered = false"
           class="aplayer-thumb"
-          :style="{borderColor:　theme, backgroundColor: thumbHovered ? theme : '#fff'}"
+          :style="{borderColor:　theme, backgroundColor: thumbHovered ? theme : '#30B3CE'}"
         >
           <span class="aplayer-loading-icon"
                 :style="{backgroundColor: theme }"
@@ -120,7 +120,8 @@
       position: relative;
       height: 2px;
       width: 100%;
-      background: #cdcdcd;
+      border-radius: 1px;
+      background: rgba(200, 200, 200, 0.3);
 
       .aplayer-loaded {
         position: absolute;
@@ -147,16 +148,17 @@
           position: absolute;
           top: 0;
           right: 5px;
-          margin-top: -5px;
+          margin-top: -6px;
           margin-right: -10px;
-          width: 10px;
-          height: 10px;
+          width: 12px;
+          height: 12px;
           border: 1px solid;
           transform: scale(.8);
           will-change: transform;
           transition: transform 300ms, background-color .3s, border-color .3s;
+          box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
           border-radius: 50%;
-          background: #fff;
+          background: #30B3CE;
           cursor: pointer;
 
           &:hover {

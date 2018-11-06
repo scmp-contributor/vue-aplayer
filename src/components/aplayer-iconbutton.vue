@@ -27,7 +27,6 @@
     background-color: transparent;
     outline: none;
     cursor: pointer;
-    opacity: .8;
     vertical-align: middle;
     padding: 0;
     font-size: 12px;

@@ -6,7 +6,8 @@
       'aplayer-withlist' : !mini && musicList.length > 0,
       'aplayer-withlrc': !mini && (!!$slots.display || showLrc),
       'aplayer-float': isFloatMode,
-      'aplayer-loading': isPlaying && isLoading
+      'aplayer-loading': isPlaying && isLoading,
+      'black-theme': blackTheme,
     }"
     :style="floatStyleObj"
   >
@@ -21,10 +22,6 @@
         @dragging="onDragAround"
       />
       <div class="aplayer-info" v-show="!mini">
-        <div class="aplayer-music">
-          <span class="aplayer-title">{{ currentMusic.title || 'Untitled' }}</span>
-          <span class="aplayer-author">{{ currentMusic.artist || 'Unknown' }}</span>
-        </div>
         <slot name="display" :current-music="currentMusic" :play-stat="playStat">
           <lyrics :current-music="currentMusic" :play-stat="playStat" v-if="showLrc" />
         </slot>
@@ -35,6 +32,7 @@
           :volume="audioVolume"
           :muted="isAudioMuted"
           :theme="currentTheme"
+          :duration="duration"
           @toggleshuffle="shouldShuffle = !shouldShuffle"
           @togglelist="showList = !showList"
           @togglemute="toggleMute"
@@ -98,6 +96,10 @@
       Lyrics,
     },
     props: {
+      duration: {
+        type: String,
+        default: '00:00'
+      },
       music: {
         type: Object,
         required: true,
@@ -123,9 +125,13 @@
         type: Boolean,
         default: true,
       },
+      blackTheme: {
+        type: Boolean,
+        default: false,
+      },
       theme: {
         type: String,
-        default: '#41b883',
+        default: '#30B3CE',
       },
 
       listMaxHeight: String,
@@ -192,7 +198,7 @@
        */
       volume: {
         type: Number,
-        default: 0.8,
+        default: 1,
         validator (value) {
           return value >= 0 && value <= 1
         },
@@ -810,16 +816,16 @@
   @import "./scss/variables";
 
   .aplayer {
-    font-family: Arial, Helvetica, sans-serif;
+    width: 335px;
+    height: 60px;
     color: #000;
-    background-color: #fff;
-    margin: 5px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.07), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    overflow: hidden;
+    background-color: #F7F7F7;
+    border-radius: 8px;
     user-select: none;
     line-height: initial;
-
+    &.black-theme {
+      background-color: #3C414A;
+    }
     * {
       box-sizing: content-box;
     }
@@ -829,19 +835,19 @@
     }
 
     .aplayer-body {
+      height: 100%;
       display: flex;
-
+      align-items: center;
       position: relative;
       .aplayer-info {
         flex-grow: 1;
         display: flex;
+        justify-content: center;
         flex-direction: column;
 
         text-align: start;
-        padding: 14px 7px 0 10px;
         height: $aplayer-height;
         box-sizing: border-box;
-        overflow: hidden;
 
         .aplayer-music {
           flex-grow: 1;
@@ -892,7 +898,7 @@
         }
 
         .aplayer-info {
-          padding: 10px 7px 0 7px;
+          padding: 10px 7px 10px 7px;
         }
       }
     }

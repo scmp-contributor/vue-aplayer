@@ -92,15 +92,20 @@
       z-index: -1;
       transition: all .2s ease;
 
+      button {
+        width: 24px;
+        height: 24px;
+      }
+
       &::after {
         content: '';
         position: absolute;
         bottom: -16px;
         left: 0;
         right: 0;
-        height: 62px;
-        background-color: #fff;
-        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.07), 0 0 5px 0 rgba(0, 0, 0, 0.1);
+        height: 40px;
+        // background-color: #fff;
+        // box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.07), 0 0 5px 0 rgba(0, 0, 0, 0.1);
       }
 
       .aplayer-volume-bar {

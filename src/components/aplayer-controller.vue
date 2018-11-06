@@ -1,5 +1,10 @@
 <template>
   <div class="aplayer-controller">
+    <div class="aplayer-time">
+      <div class="aplayer-time-inner">
+        <span v-show="haveDuration" class="aplayer-ptime">{{secondToTime(stat.playedTime)}}</span> 
+      </div>
+    </div>
     <v-progress
       :loadProgress="loadProgress"
       :playProgress="playProgress"
@@ -10,8 +15,7 @@
     />
     <div class="aplayer-time">
       <div class="aplayer-time-inner">
-        - <span class="aplayer-ptime">{{secondToTime(stat.playedTime)}}</span> / <span
-        class="aplayer-dtime">{{secondToTime(stat.duration)}}</span>
+        <span v-show="haveDuration" class="aplayer-dtime">{{duration}}</span>
       </div>
       <volume
         v-if="!$parent.isMobile"
@@ -20,18 +24,6 @@
         :muted="muted"
         @togglemute="$emit('togglemute')"
         @setvolume="v => $emit('setvolume', v)"
-      />
-      <icon-button
-        class="aplayer-icon-mode"
-        icon="shuffle"
-        :class="{ 'inactive': !shuffle }"
-        @click.native="$emit('toggleshuffle')"
-      />
-      <icon-button
-        class="aplayer-icon-mode"
-        :icon="repeat === 'repeat-one' ? 'repeat-one' : 'repeat-all'"
-        :class="{ 'inactive': repeat === 'no-repeat'}"
-        @click.native="$emit('nextmode')"
       />
       <icon-button
         class="aplayer-icon-menu"
@@ -54,8 +46,11 @@
       VProgress,
       Volume,
     },
-    props: ['shuffle', 'repeat', 'stat', 'theme', 'volume', 'muted'],
+    props: ['shuffle', 'repeat', 'stat', 'theme', 'volume', 'muted',"duration"],
     computed: {
+      haveDuration () {
+        return this.duration !== "00:00"
+      },
       loadProgress () {
         if (this.stat.duration === 0) return 0
         return this.stat.loadedTime / this.stat.duration
@@ -96,26 +91,29 @@
       align-items: center;
       position: relative;
       height: 17px;
-      color: #999;
-      font-size: 11px;
+      color: #1C2129;
+      font-size: 16px;
+      padding-right: 6px;
       padding-left: 7px;
 
-      .aplayer-volume-wrap {
-        margin-left: 4px;
-        margin-right: 4px;
+      .aplayer-dtime {
+        padding-right: 18px
       }
 
       .aplayer-icon {
+        width: 19px;
+        height: 19px;
         cursor: pointer;
         transition: all 0.2s ease;
         margin-left: 4px;
+        padding-bottom: 1px;
 
         &.inactive {
           opacity: .3;
         }
 
         .aplayer-fill {
-          fill: #666;
+          fill: #000;
         }
 
         &:hover {
@@ -144,4 +142,16 @@
     }
   }
 
+  .black-theme {
+    .aplayer-time {
+      color: #fff;
+    }  
+    .aplayer-controller {
+      .aplayer-icon {
+        .aplayer-fill {
+          fill: #fff;
+        }
+      }
+    }
+  }
 </style>
