@@ -104,12 +104,12 @@ module.exports = [
 
   // Config 2: For Node-based development environments
   merge(commonConfig, {
-    entry: path.resolve(__dirname + '/src/vue-aplayer.vue'),
+    entry: path.resolve(__dirname + '/src/main.js'),
     output: {
       filename: 'vue-aplayer.js',
       libraryTarget: 'umd',
 
-      // These options are useful if the user wants to load the module with AMD
+      // These options are useful if the user wants to load the module with UMD
       library: 'vue-aplayer',
       umdNamedDefine: true
     }

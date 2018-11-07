@@ -1,7 +1,7 @@
 {
   "name": "vue-aplayer",
   "version": "1.6.0",
-  "description": "Easy-to-use music player for Vue 2.x",
+  "description": "Easy-to-use music player for Vue 2.x (forked from SevenOutman/vue-aplayer)",
   "main": "dist/vue-aplayer.js",
   "files": [
     "src",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SevenOutman/vue-aplayer.git"
+    "url": "git+https://github.com/scmp/vue-aplayer.git"
   },
   "keywords": [
     "vue",
@@ -32,15 +32,15 @@
     "vue-compoents"
   ],
   "author": {
-    "name": "Doma",
-    "email": "leishenghao@126.com",
-    "url": "https://github.com/SevenOutman"
+    "name": "Ken Yeung",
+    "email": "ken.yeung@scmp.com",
+    "url": "https://github.com/scmp"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SevenOutman/vue-aplayer/issues"
+    "url": "https://github.com/scmp/vue-aplayer/issues"
   },
-  "homepage": "https://github.com/SevenOutman/vue-aplayer#readme",
+  "homepage": "https://github.com/scmp/vue-aplayer#readme",
   "peerDependencies": {
     "vue": "^2.5.16"
   },
