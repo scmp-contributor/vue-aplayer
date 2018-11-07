@@ -1,7 +1,8 @@
 var path = require('path')
 var webpack = require('webpack')
+var merge = require('webpack-merge');
 
-module.exports = {
+var commonConfig = {
   entry: './src/vue-aplayer.vue',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -80,7 +81,7 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
   // http://vuejs.github.io/vue-loader/workflow/production.html
-  module.exports.plugins.push(
+  commonConfig.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
@@ -88,3 +89,29 @@ if (process.env.NODE_ENV === 'production') {
     })
   )
 }
+
+module.exports = [
+
+  // Config 1: For browser environment
+  merge(commonConfig, {
+    entry: path.resolve(__dirname + '/src/plugin.js'),
+    output: {
+      filename: 'vue-aplayer.min.js',
+      libraryTarget: 'window',
+      library: 'VueAPlayer'
+    }
+  }),
+
+  // Config 2: For Node-based development environments
+  merge(commonConfig, {
+    entry: path.resolve(__dirname + '/src/vue-aplayer.vue'),
+    output: {
+      filename: 'vue-aplayer.js',
+      libraryTarget: 'umd',
+
+      // These options are useful if the user wants to load the module with AMD
+      library: 'vue-aplayer',
+      umdNamedDefine: true
+    }
+  })
+];
