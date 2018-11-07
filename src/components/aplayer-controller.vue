@@ -2,7 +2,8 @@
   <div class="aplayer-controller">
     <div class="aplayer-time">
       <div class="aplayer-time-inner">
-        <span v-show="haveDuration" class="aplayer-ptime">{{secondToTime(stat.playedTime)}}</span> 
+        <span v-show="haveDuration" class="aplayer-ptime">{{secondToTime(stat.playedTime)}}</span>
+        <span v-show="!haveDuration" class="aplayer-ptime">00:00</span> 
       </div>
     </div>
     <v-progress
@@ -16,6 +17,7 @@
     <div class="aplayer-time">
       <div class="aplayer-time-inner">
         <span v-show="haveDuration" class="aplayer-dtime">{{duration}}</span>
+        <span v-show="!haveDuration" class="aplayer-ptime">00:00</span> 
       </div>
       <volume
         v-if="!$parent.isMobile"
@@ -46,18 +48,28 @@
       VProgress,
       Volume,
     },
-    props: ['shuffle', 'repeat', 'stat', 'theme', 'volume', 'muted',"duration"],
+    props: ['shuffle', 'repeat', 'stat', 'theme', 'volume', 'muted', "duration"],
     computed: {
+      durationSec () {
+        let duration = this.duration.split(":")
+        return parseInt(duration[0]) * 60 + parseInt(duration[1])
+      },
       haveDuration () {
         return this.duration !== "00:00"
       },
       loadProgress () {
         if (this.stat.duration === 0) return 0
-        return this.stat.loadedTime / this.stat.duration
+        if (this.stat.loadedTime >= this.durationSec) {
+          return 1
+        }
+        return this.stat.loadedTime / this.durationSec
       },
       playProgress () {
         if (this.stat.duration === 0) return 0
-        return this.stat.playedTime / this.stat.duration
+        if (this.stat.playedTime >= this.durationSec && this.haveDuration) {
+          return 1
+        }
+        return this.stat.playedTime / this.durationSec
       },
     },
     methods: {
