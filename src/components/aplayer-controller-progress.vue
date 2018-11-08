@@ -111,6 +111,7 @@
 <style lang="scss">
 
   .aplayer-bar-wrap {
+    flex: 0 1 100%;
     margin: 0 0 0 5px;
     padding: 4px 0;
     cursor: pointer;

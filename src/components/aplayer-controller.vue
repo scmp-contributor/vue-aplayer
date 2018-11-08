@@ -17,7 +17,7 @@
     <div class="aplayer-time">
       <div class="aplayer-time-inner">
         <span v-show="haveDuration" class="aplayer-dtime">{{duration}}</span>
-        <span v-show="!haveDuration" class="aplayer-ptime">00:00</span> 
+        <span v-show="!haveDuration" class="aplayer-dtime">00:00</span> 
       </div>
       <volume
         v-if="!$parent.isMobile"
@@ -105,19 +105,14 @@
       height: 17px;
       color: #1C2129;
       font-size: 16px;
-      padding-right: 6px;
+      padding-right: 4px;
       padding-left: 7px;
-
-      .aplayer-dtime {
-        padding-right: 18px
-      }
 
       .aplayer-icon {
         width: 19px;
         height: 19px;
         cursor: pointer;
         transition: all 0.2s ease;
-        margin-left: 4px;
         padding-bottom: 1px;
 
         &.inactive {

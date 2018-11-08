@@ -103,9 +103,6 @@
       music: {
         type: Object,
         required: true,
-        validator (song) {
-          return !song.src
-        },
       },
       list: {
         type: Array,

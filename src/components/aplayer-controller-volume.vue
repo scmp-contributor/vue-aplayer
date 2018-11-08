@@ -19,6 +19,9 @@
         >
         </div>
       </div>
+      <div v-for="n in 9" class="aplayer-volume-white" :rel="n" :key="n">
+
+      </div>
     </div>
   </div>
 </template>
@@ -27,7 +30,7 @@
   import IconButton from './aplayer-iconbutton.vue'
   import {getElementViewTop} from '../utils'
 
-  const barHeight = 40
+  const barHeight = 70
 
   export default {
     components: {
@@ -74,6 +77,11 @@
 <style lang="scss">
 
   .aplayer-volume-wrap {
+    margin-left: 4px;
+    flex: 1 0 34px;
+    width: 34px;
+    display: flex;
+    justify-content: center;
     position: relative;
     cursor: pointer;
     z-index: 0;
@@ -85,7 +93,7 @@
     .aplayer-volume-bar-wrap {
       display: none;
       position: absolute;
-      bottom: 15px;
+      bottom: 10px;
       left: -4px;
       right: -4px;
       height: 40px;
@@ -100,22 +108,23 @@
       &::after {
         content: '';
         position: absolute;
-        bottom: -16px;
-        left: 0;
+        bottom: -20px;
+        left: 4px;
         right: 0;
-        height: 40px;
-        // background-color: #fff;
-        // box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.07), 0 0 5px 0 rgba(0, 0, 0, 0.1);
+        height: 126px;
+        width: 34px;
+        border-radius: 34px;
+        background-color: #fff;
+        box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.14), 0 0 5px 0 rgba(0, 0, 0, 0.1);
       }
 
       .aplayer-volume-bar {
         position: absolute;
-        bottom: 0;
-        left: 11px;
-        width: 5px;
-        height: 40px;
+        bottom: 17px;
+        left: 19px;
+        width: 4px;
+        height: 76px;
         background: #aaa;
-        border-radius: 2.5px;
         overflow: hidden;
         z-index: 1;
 
@@ -126,6 +135,17 @@
           right: 0;
           transition: height 0.1s ease, background-color .3s;
           will-change: height;
+        }
+      }
+      @for $i from 1 through 9 {
+        .aplayer-volume-white[rel="#{$i}"] {
+          position: absolute;
+          bottom: calc( 13px + (#{$i} * 8px ));
+          left: 19px;
+          width: 4px;
+          height: 4px;
+          background-color: #fff;
+          z-index: 1;
         }
       }
     }
