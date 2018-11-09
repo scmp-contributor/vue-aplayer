@@ -158,6 +158,11 @@
         .aplayer-fill {
           fill: #fff;
         }
+        &:hover {
+          .aplayer-fill {
+            fill: #fff;
+          }
+        }
       }
     }
   }

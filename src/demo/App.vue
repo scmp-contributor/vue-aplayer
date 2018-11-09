@@ -90,7 +90,7 @@
 
   body {
     font-family: Source Sans Pro, 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    /* background: linear-gradient(135deg, rgb(65, 184, 131), rgb(74, 156, 238)); */
+    background: #1c2129;
     color: #fff;
     overflow-y: auto;
   }

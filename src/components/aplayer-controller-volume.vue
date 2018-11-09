@@ -20,7 +20,6 @@
         </div>
       </div>
       <div v-for="n in 9" class="aplayer-volume-white" :rel="n" :key="n">
-
       </div>
     </div>
   </div>
@@ -113,7 +112,7 @@
         right: 0;
         height: 126px;
         width: 34px;
-        border-radius: 34px;
+        border-radius: 17px;
         background-color: #fff;
         box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.14), 0 0 5px 0 rgba(0, 0, 0, 0.1);
       }
@@ -146,6 +145,20 @@
           height: 4px;
           background-color: #fff;
           z-index: 1;
+        }
+      }
+    }
+  }
+  .black-theme {
+    .aplayer-volume-bar-wrap {
+
+      &::after {
+        background-color :#1c2129;
+      }
+
+      @for $i from 1 through 9 {
+        .aplayer-volume-white[rel="#{$i}"] {
+          background-color: #1c2129;
         }
       }
     }
