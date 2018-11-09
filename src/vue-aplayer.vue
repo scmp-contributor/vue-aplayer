@@ -96,6 +96,10 @@
       Lyrics,
     },
     props: {
+      isPlay: {
+        type: Boolean,
+        default: false,
+      },
       duration: {
         type: String,
         default: '00:00'
@@ -707,6 +711,13 @@
       },
     },
     watch: {
+      isPlay (v) {
+        if (v == true) {
+          this.thenPlay()
+        } else {
+          this.pause()
+        }
+      },
       music (music) {
         this.internalMusic = music
       },
