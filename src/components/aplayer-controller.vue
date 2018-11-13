@@ -149,7 +149,7 @@
     }
   }
 
-  .black-theme {
+  .dark-theme {
     .aplayer-time {
       color: #fff;
     }  

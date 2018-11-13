@@ -7,7 +7,7 @@
       'aplayer-withlrc': !mini && (!!$slots.display || showLrc),
       'aplayer-float': isFloatMode,
       'aplayer-loading': isPlaying && isLoading,
-      'black-theme': blackTheme,
+      'dark-theme': darkTheme,
     }"
     :style="floatStyleObj"
   >
@@ -126,7 +126,7 @@
         type: Boolean,
         default: true,
       },
-      blackTheme: {
+      darkTheme: {
         type: Boolean,
         default: false,
       },
@@ -831,7 +831,7 @@
     border-radius: 8px;
     user-select: none;
     line-height: initial;
-    &.black-theme {
+    &.dark-theme {
       background-color: #3C414A;
     }
     * {
