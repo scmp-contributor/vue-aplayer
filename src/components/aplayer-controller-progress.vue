@@ -112,7 +112,7 @@
 
   .aplayer-bar-wrap {
     flex: 0 1 100%;
-    margin: 0 0 0 5px;
+    margin: 0 0 0 8px;
     padding: 4px 0;
     cursor: pointer;
     flex: 1;
