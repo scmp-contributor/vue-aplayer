@@ -10,7 +10,7 @@
   const requireAssets = require.context('../assets', false, /\.svg$/)
   const SVGs = requireAssets.keys().reduce((svgs, path) => {
     const inlineSvg = requireAssets(path)
-    const [raw, viewBox, d] = inlineSvg.match(/^<svg.+?viewBox="(.+?)".*>.*?<path.+?d="(.+?)".*><\/path>.*?<\/svg>$/)
+    const [raw, viewBox, d] = inlineSvg.match(/^<svg.+?viewBox="(.+?)".*><path.+?d="(.+?)".*><\/path><\/svg>$/)
 
     svgs[path.match(/^.*\/(.+?)\.svg$/)[1]] = {
       viewBox,
