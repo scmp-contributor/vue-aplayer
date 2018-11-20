@@ -39,6 +39,7 @@
     computed: {
       volumeIcon () {
         if (this.muted || this.volume <= 0) return 'volume-off'
+        if (this.volume >=0.5 && this.volume < 1) return 'volume-middle'
         if (this.volume >= 1) return 'volume-up'
         return 'volume-down'
       },
