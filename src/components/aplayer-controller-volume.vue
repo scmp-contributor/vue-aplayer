@@ -5,7 +5,7 @@
       :icon="volumeIcon"
       @click.native="$emit('togglemute')"
     />
-    <div
+    <!-- <div
       class="aplayer-volume-bar-wrap"
       @mousedown="onBarMouseDown"
     >
@@ -21,7 +21,7 @@
       </div>
       <div v-for="n in 9" class="aplayer-volume-white" :rel="n" :key="n">
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
