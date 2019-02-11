@@ -726,34 +726,7 @@
         handler (music) {
           // async
           this.setSelfAdaptingTheme()
-
-          const src = music.src
-          // HLS support
-          if (/\.m3u8(?=(#|\?|$))/.test(src)) {
-            if (this.audio.canPlayType('application/x-mpegURL') || this.audio.canPlayType('application/vnd.apple.mpegURL')) {
-              this.audio.src = src
-            } else {
-              try {
-                const Hls = require('hls.js')
-                if (Hls.isSupported()) {
-                  if (!this.hls) {
-                    this.hls = new Hls()
-                  }
-                  this.hls.loadSource(src)
-                  this.hls.attachMedia(this.audio)
-                } else {
-                  warn('HLS is not supported on your browser')
-                  this.audio.src = src
-                }
-              } catch (e) {
-                warn('hls.js is required to support m3u8')
-                this.audio.src = src
-              }
-            }
-          } else {
-            this.audio.src = src
-          }
-          // self-adapting theme color
+          this.audio.src  = music.src
         },
       },
 
@@ -809,9 +782,6 @@
     beforeDestroy () {
       if (activeMutex === this) {
         activeMutex = null
-      }
-      if (this.hls) {
-        this.hls.destroy()
       }
     },
   }

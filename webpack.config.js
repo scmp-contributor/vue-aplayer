@@ -14,12 +14,6 @@ var commonConfig = {
   },
 
   externals: {
-    'hls.js': {
-      amd: 'hls.js',
-      commonjs: 'hls.js',
-      commonjs2: 'hls.js',
-      root: 'Hls'
-    },
     'vue':  {
       amd: 'vue',
       commonjs: 'vue',
