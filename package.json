@@ -1,6 +1,6 @@
 {
   "name": "vue-aplayer",
-  "version": "1.6.0-scmp",
+  "version": "1.7.0-scmp",
   "description": "Easy-to-use music player for Vue 2.x (forked from SevenOutman/vue-aplayer)",
   "main": "dist/vue-aplayer.js",
   "files": [
