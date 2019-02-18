@@ -713,9 +713,7 @@
     watch: {
       isPlay (v) {
         if (v == true) {
-          if (!this.isPlaying) {
-            this.thenPlay()
-          }
+          this.thenPlay()
         } else {
           this.pause()
         }
