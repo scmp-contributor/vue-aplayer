@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scmp/vue-aplayer.git"
+    "url": "git+https://github.com/scmp-contributor/vue-aplayer.git"
   },
   "keywords": [
     "vue",
@@ -34,13 +34,13 @@
   "author": {
     "name": "Ken Yeung",
     "email": "ken.yeung@scmp.com",
-    "url": "https://github.com/scmp"
+    "url": "https://github.com/scmp-contributor"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/scmp/vue-aplayer/issues"
+    "url": "https://github.com/scmp-contributor/vue-aplayer/issues"
   },
-  "homepage": "https://github.com/scmp/vue-aplayer#readme",
+  "homepage": "https://github.com/scmp-contributor/vue-aplayer#readme",
   "peerDependencies": {
     "vue": "^2.5.16"
   },
